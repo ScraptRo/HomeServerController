@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Control Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                    <h1>Server Control Dashboard</h1>
+                    <p class="subtitle">Monitor and control your server remotely</p>
+                </div>
+                <div>
+                    <span>Status: <strong id="server-status">Online</strong></span>
+                    <span class="status-indicator status-online" id="status-indicator"></span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="console-panel">
+                <div class="console-header">
+                    <h3 class="console-title">Console Output</h3>
+                    <div class="console-controls">
+                        <input type="text" class="log-filter" placeholder="Filter logs..." id="log-filter">
+                        <button class="console-btn" onclick="clearConsole()">Clear</button>
+                        <button class="console-btn" onclick="toggleAutoScroll()" id="autoscroll-btn">Auto-scroll: ON</button>
+                    </div>
+                </div>
+                <div class="console-output" id="console-output">
+                    
+                </div>
+                <div class="console-input-group">
+                    <input type="text" class="console-input" placeholder="Enter command..." id="command-input">
+                    <button class="send-btn" onclick="processCommand()">Send</button>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <div class="panel">
+                <h3>Server Controls</h3>
+                <div class="control-buttons">
+                    <button class="control-btn success" onclick="serverAction('start')">Start</button>
+                    <button class="control-btn danger" onclick="serverAction('stop')">Stop</button>
+                    <button class="control-btn" onclick="serverAction('restart')">Restart</button>
+                    <button class="control-btn" onclick="serverAction('backup')">Backup</button>
+                </div>
+                <h3>Computer Controls</h3>
+                <div class="control-buttons">
+                    <button class="control-btn danger" onclick="serverAction('shutdown')">Shutdown</button>
+                    <button class="control-btn warning" onclick="serverAction('reboot')">Reboot</button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Server Information</h3>
+                <div class="server-info">
+                    <div class="info-item">
+                        <span class="info-label">Uptime:</span>
+                        <span class="info-value" id="uptime">00:00:00</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">CPU Usage:</span>
+                        <span class="info-value" id="cpu-usage">0%</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Memory:</span>
+                        <span class="info-value" id="memory-usage">0 MB</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Connections:</span>
+                        <span class="info-value" id="connections">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Port:</span>
+                        <span class="info-value" id="server-port">5050</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Last Update:</span>
+                        <span class="info-value" id="last-update">Just now</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <footer class="footer">
+            <p>&copy; 2025 Server Control Dashboard - Built with vanilla HTML, CSS & JavaScript</p>
+        </footer>
+    </div>
+
+    <div class="notification" id="notification">
+        <div id="notification-content"></div>
+    </div>
+    <script src="scripts.js" defer></script>
+</body>
+</html>

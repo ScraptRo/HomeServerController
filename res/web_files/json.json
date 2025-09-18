@@ -1,0 +1,4 @@
+{"status" : "success", "message": ["help : Show this help message. Also can describe other commands by tipping help [command]", "login : Let the user login based on credentials, and gives permisions based on user details, determined by the admin",
+"logout : Logs out the user, giving him access to switch to other accounts",
+"whoami : Specify the account you are connected"]
+}
